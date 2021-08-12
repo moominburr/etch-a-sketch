@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 1fr;
+  padding: 2em;
+  grid-template-areas:
+    "sketchpad"
+    "controls";
+    @media screen and (min-width: 769px){
+        grid-template-columns: 1fr 1fr 1fr;
+
+        grid-template-areas:
+        "controls sketchpad sketchpad";
+    }
+}
+.sketchpad {
+  grid-area: sketchpad;
+  border: 2px solid black;
+  display: grid;
+  width: 600px;
+  height: 600px;
+}
+.controls {
+  grid-area: controls;
+}
