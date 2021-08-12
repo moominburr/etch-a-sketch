@@ -1,13 +1,12 @@
 //Defaults
 let DEFAULT_SIZE = 16;
 let DEFAULT_COLOR = "#32fbcc";
+let DEFAULT_MODE = 'normal';
 
-const main = document.querySelector(".main");
 const sketchpad = document.querySelector(".sketchpad");
-const controls = document.querySelector(".controls");
 const resetBtn = document.querySelector('.reset');
-let color = "#32fbcc";
-let mode = "normal";
+let color = DEFAULT_COLOR;
+let mode = DEFAULT_MODE;
 
 // Inputs
 const gridSizeSlider = document.getElementById("grid-size-slider");
@@ -101,4 +100,4 @@ function resetBoard(){
     let divs = document.querySelectorAll('.box');
     divs.forEach(div => div.style.backgroundColor = 'white');
 }
-setupGrid(DEFAULT_SIZE);
+window.onload(setupGrid(DEFAULT_SIZE));
