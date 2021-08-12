@@ -4,12 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-sketch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Georama:wght@200&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
     <div class="main">
+      <div class="heading"><h1>Etch-a-sketch</h1></div>
       <div class="sketchpad"></div>
-      <div class="controls"></div>
+      <div class="controls">
+        <div class="rangeInputDiv">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="16"
+            id="grid-size-slider"
+            name="gridSquares"
+            class="rangeInput"
+          />
+          <label for="gridSquares">Choose how small your pixels are</label>
+        </div>
+        <div class="colorInputDiv">
+          <input type="color" value="#32fbcc" id="colorPicker" name="colorPicker" />
+          <label for="colorPicker">Choose a color</label>
+        </div>
+        <div class="modeSelection">
+          <div class="container">
+            <input type="radio" value="normal" name="mode" checked />
+            <span class="checkmark"></span>
+            <label for="normal">Normal Mode</label>
+          </div>
+          <div class="container">
+            <input type="radio" value="random" name="mode" />
+            <span class="checkmark"></span>
+            <label for="random">Random Mode</label>
+          </div>
+          <div class="container">
+            <input type="radio" value="erase" name="mode" /> <span class="checkmark"></span
+            ><label for="erase">Eraser</label>
+          </div>
+        </div>
+        <button class="reset">Clear</button>
+      </div>
     </div>
   </body>
   <script

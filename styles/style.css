@@ -3,6 +3,7 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Georama", sans-serif;
 }
 
 .main {
@@ -12,25 +13,55 @@
   display: grid;
   -ms-grid-columns: 2fr;
       grid-template-columns: 2fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  -ms-grid-rows: 10vh 1fr 1fr;
+      grid-template-rows: 10vh 1fr 1fr;
   padding: 2em;
-      grid-template-areas: "sketchpad" "controls";
+      grid-template-areas: "heading" "sketchpad" "controls";
 }
 
 @media screen and (min-width: 769px) {
   .main {
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-areas: "controls sketchpad sketchpad";
+    -ms-grid-rows: 15% 1fr;
+        grid-template-rows: 15% 1fr;
+        grid-template-areas: "heading heading heading" "controls sketchpad sketchpad";
+  }
+}
+
+.heading {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: heading;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.heading h1 {
+  font-family: "Alfa Slab One", cursive;
+  font-size: 3em;
+}
+
+@media screen and (min-width: 769px) {
+  .heading h1 {
+    font-size: 5em;
   }
 }
 
 .sketchpad {
-  -ms-grid-row: 1;
+  -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: sketchpad;
   border: 2px solid black;
+  -webkit-box-shadow: 0 0 5px 1px black;
+          box-shadow: 0 0 5px 1px black;
   display: -ms-grid;
   display: grid;
   width: 600px;
@@ -38,8 +69,115 @@
 }
 
 .controls {
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: controls;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.controls .rangeInputDiv,
+.controls .colorInputDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.controls .rangeInputDiv label,
+.controls .colorInputDiv label {
+  padding-top: 1em;
+}
+
+.controls .colorInput {
+  border-radius: 50%;
+}
+
+.controls input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.controls input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.controls input[type="color"]::-webkit-color-swatch {
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.controls .rangeInput {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  -moz-appearance: none;
+       appearance: none;
+  width: 100%;
+  /* Full-width */
+  height: 10px;
+  /* Specified height */
+  background: #b9f8e9;
+  /* Grey background */
+  outline: none;
+  /* Remove outline */
+  opacity: 0.7;
+  /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s;
+  /* 0.2 seconds transition on hover */
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 1em;
+}
+
+.controls .rangeInput input[type="range"]::-moz-range-progress {
+  background-color: #32fbcc;
+}
+
+.controls .rangeInput:hover {
+  opacity: 1;
+  --thumb-transform: scale(1.2);
+  cursor: pointer;
+}
+
+.controls .rangeInput .rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 40px;
+  /* Set a specific slider handle width */
+  height: 40px;
+  /* Slider handle height */
+  background: #04aa6d;
+  /* Green background */
+}
+
+.controls .rangeInput .rangeInput::-moz-range-thumb {
+  width: 40px;
+  /* Set a specific slider handle width */
+  height: 40px;
+  /* Slider handle height */
+  background: #04aa6d;
+  /* Green background */
 }
 /*# sourceMappingURL=style.css.map */
