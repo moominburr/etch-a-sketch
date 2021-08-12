@@ -1,10 +1,10 @@
 //Defaults
 let DEFAULT_SIZE = 16;
 let DEFAULT_COLOR = "#32fbcc";
-let DEFAULT_MODE = 'normal';
+let DEFAULT_MODE = "normal";
 
 const sketchpad = document.querySelector(".sketchpad");
-const resetBtn = document.querySelector('.reset');
+const resetBtn = document.querySelector(".reset");
 let color = DEFAULT_COLOR;
 let mode = DEFAULT_MODE;
 
@@ -20,24 +20,9 @@ for (var i = 0; i < modeSelectBtns.length; i++) {
   let radio = modeSelectBtns[i];
   radio.onclick = (e) => changeMode(e);
 }
-resetBtn.addEventListener('click', resetBoard);
+resetBtn.addEventListener("click", resetBoard);
 
 //Functions
-function changeMode(e) {
-  mode = e.target.value;
-}
-function changeSize(e) {
-  let size = e.target.value;
-  setupGrid(size);
-  let divs = document.querySelectorAll('.box');
-  divs.forEach(div => div.style.backgroundColor = 'white');
-}
-function setNewColor(e) {
-  color = e.target.value;
-  mode = "normal";
-  gridSizeSlider.style.backgroundColor = color;
-}
-
 function setupGrid(size) {
   sketchpad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   sketchpad.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -45,10 +30,28 @@ function setupGrid(size) {
     const gridElement = document.createElement("div");
     //gridElement.style.border = "1px solid black";
     gridElement.addEventListener("mouseover", changeColorHover);
-    gridElement.classList.add('box');
+    gridElement.classList.add("box");
     sketchpad.appendChild(gridElement);
   }
 }
+
+function changeMode(e) {
+  mode = e.target.value;
+}
+
+function changeSize(e) {
+  let size = e.target.value;
+  setupGrid(size);
+  let divs = document.querySelectorAll(".box");
+  divs.forEach((div) => (div.style.backgroundColor = "white"));
+}
+
+function setNewColor(e) {
+  color = e.target.value;
+  mode = "normal";
+  gridSizeSlider.style.backgroundColor = color;
+}
+
 function changeColorHover(e) {
   let div = e.target;
   let currentColor = color;
@@ -96,8 +99,10 @@ function changeColorHover(e) {
     }
   }
 }
-function resetBoard(){
-    let divs = document.querySelectorAll('.box');
-    divs.forEach(div => div.style.backgroundColor = 'white');
+
+function resetBoard() {
+  let divs = document.querySelectorAll(".box");
+  divs.forEach((div) => (div.style.backgroundColor = "white"));
 }
+
 window.onload(setupGrid(DEFAULT_SIZE));
