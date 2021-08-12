@@ -5,7 +5,8 @@ let DEFAULT_COLOR = "#32fbcc";
 const main = document.querySelector(".main");
 const sketchpad = document.querySelector(".sketchpad");
 const controls = document.querySelector(".controls");
-let color = "slategrey";
+const resetBtn = document.querySelector('.reset');
+let color = "#32fbcc";
 let mode = "normal";
 
 // Inputs
@@ -20,6 +21,7 @@ for (var i = 0; i < modeSelectBtns.length; i++) {
   let radio = modeSelectBtns[i];
   radio.onclick = (e) => changeMode(e);
 }
+resetBtn.addEventListener('click', resetBoard);
 
 //Functions
 function changeMode(e) {
@@ -28,10 +30,13 @@ function changeMode(e) {
 function changeSize(e) {
   let size = e.target.value;
   setupGrid(size);
+  let divs = document.querySelectorAll('.box');
+  divs.forEach(div => div.style.backgroundColor = 'white');
 }
 function setNewColor(e) {
   color = e.target.value;
   mode = "normal";
+  gridSizeSlider.style.backgroundColor = color;
 }
 
 function setupGrid(size) {
@@ -41,6 +46,7 @@ function setupGrid(size) {
     const gridElement = document.createElement("div");
     //gridElement.style.border = "1px solid black";
     gridElement.addEventListener("mouseover", changeColorHover);
+    gridElement.classList.add('box');
     sketchpad.appendChild(gridElement);
   }
 }
@@ -90,5 +96,9 @@ function changeColorHover(e) {
       div.setAttribute("data-key", "1");
     }
   }
+}
+function resetBoard(){
+    let divs = document.querySelectorAll('.box');
+    divs.forEach(div => div.style.backgroundColor = 'white');
 }
 setupGrid(DEFAULT_SIZE);

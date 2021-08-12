@@ -17,6 +17,7 @@
       <div class="heading"><h1>Etch-a-sketch</h1></div>
       <div class="sketchpad"></div>
       <div class="controls">
+        <div class="mouse"><p>You need to use a mouse to use Etch-a-sketch.</p></div>
         <div class="rangeInputDiv">
           <input
             type="range"
@@ -35,21 +36,18 @@
         </div>
         <div class="modeSelection">
           <div class="container">
-            <input type="radio" value="normal" name="mode" checked />
-            <span class="checkmark"></span>
+            <input type="radio" value="normal" name="mode" checked class="radioBtn"/>
             <label for="normal">Normal Mode</label>
           </div>
           <div class="container">
-            <input type="radio" value="random" name="mode" />
-            <span class="checkmark"></span>
+            <input type="radio" value="random" name="mode" class="radioBtn"/>
             <label for="random">Random Mode</label>
           </div>
           <div class="container">
-            <input type="radio" value="erase" name="mode" /> <span class="checkmark"></span
-            ><label for="erase">Eraser</label>
+            <input type="radio" value="erase" name="mode" class="radioBtn"/> <label for="erase">Eraser</label>
           </div>
         </div>
-        <button class="reset">Clear</button>
+        <button class="reset"><i class="fas fa-redo"></i></button>
       </div>
     </div>
   </body>
@@ -60,4 +58,5 @@
     referrerpolicy="no-referrer"
   ></script>
   <script src="./js/script.js"></script>
+  <script src="https://kit.fontawesome.com/a139138623.js" crossorigin="anonymous"></script>
 </html>
